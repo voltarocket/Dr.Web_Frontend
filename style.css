@@ -286,15 +286,16 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
+    background: scroll;
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+    z-index: 1000;
   }
   .modal-content {
     border-radius: 32px;
     height: 658px;
     width: 1141px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
   }
   .no-scroll {
@@ -376,6 +377,9 @@ body{
     .footer_description {
         width: 224px;
     }
+      .modal-content {
+        top: -200px;
+      }
 }
 
 /* Контрольная точка 480px */
@@ -460,7 +464,9 @@ body{
     .footer_description{
         width: 448px;
     }
-
+    .modal-content {
+        top: -265px;
+      }
 }
 
 /* Контрольная точка 320px */
@@ -495,6 +501,9 @@ body{
         width: 74.72px;
         bottom: 54.26px;
         left: 194px;
+    }
+    .promo{
+        padding-bottom: 24px;
     }
     .promo_block{
        flex-direction: column;
@@ -596,4 +605,7 @@ body{
         font-size: 12px;
         width: 296px;
     }
+    .modal-content {
+        top: -265px;
+      }
 }
