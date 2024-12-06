@@ -115,7 +115,7 @@ body{
     
 }
 .promo_title_text--1{
-    font-family: Roboto-Light;
+    font-family: Roboto-Medium;
     color: #69B42E;
     font-size: 20px;
     margin-bottom: 32px;
@@ -127,6 +127,7 @@ body{
 }
 .promo_title-features{
     display: flex;
+    margin-block: 12px;
     gap: 12px;
 }
 .promo_title-feature{
@@ -135,29 +136,22 @@ body{
     color: #CCCCCC;
     border: 1px solid #FFFFFF;
     border-radius: 80px;
-    padding-inline: 12px;
-    padding-block: 8px;
-}
-.promo_title-feature:hover{
-    font-family: Roboto-Light;
-    font-size: 18px;
-    background-color: #CCCCCC;
-    color: #1A1A1A;
-    border: 1px solid #FFFFFF;
-    border-radius: 80px;
+    margin-block: 0;
     padding-inline: 12px;
     padding-block: 8px;
 }
 .promo_title-description{
     width: 442px;
-    font-family: Roboto-Light;
+    font-family: Roboto-Medium;
     color: #FFFFFF;
     font-size: 20px;
+    margin-top: 0;
     margin-bottom: 32px;
 }
 .promo_title-link{
+    font-family: Roboto-Light;
     color: #69B42E;
-    width: 102px;
+    width: 111px;
 }
 .promo_title-link:hover{
     color: #80BF4D;
@@ -310,9 +304,14 @@ body{
     }
     .header_title {
         font-size: 48px;
+        margin-bottom: 8px;
     }
     .header_description {
         font-size: 24px;
+    }
+    .sale{
+        margin-top: -30px;
+        padding-bottom: 32px;
     }
     .sale_rectangle {
         height: 284px;
@@ -331,6 +330,7 @@ body{
     }
     .promo{
         padding-inline: 32px;
+        padding-bottom: 32px;
     }
     .promo_block {
         flex-direction: column;
@@ -389,6 +389,7 @@ body{
     }
     .header_title {
         font-size: 32px;
+        margin-bottom: 8px;
     }
     .header_description {
         font-size: 24px;
@@ -412,15 +413,28 @@ body{
         bottom: 70px;
         left: 295px;
     }
+    .promo{
+        padding-bottom: 32px;
+    }
     .promo_block {
         flex-direction: column;
         align-items: center;
-        padding: 60px 24px;
+        padding-top: 60px;
+        padding-inline: 24px;
+        padding-bottom: 45px;
+        gap: 60px;
     }
     .promo_title {
         width: 400px;
     }
+    .promo_title_text--2{
+        font-size: 24px;
+    }
+    .promo_title-feature{
+        margin-block: 12px;
+    }
     .promo_title-description{
+        margin-top: 0;
         font-size: 16px;
         width: 400px;
     }
@@ -479,12 +493,13 @@ body{
     }
     .header_title {
         font-size: 20px;
+        margin-bottom: 8px;
     }
     .header_description {
         font-size: 16px;
     }
     .sale{
-        padding-bottom: 32px;
+        padding-bottom: 24px;
         margin-top: -135px;
     }
     .sale_rectangle {
@@ -509,7 +524,9 @@ body{
        flex-direction: column;
        border-radius: 0px;
        width: 320px;
+       padding-block: 40px;
        padding-inline: 12px;
+       gap: 40px;
     }   
     .promo_title{
         width: 296px;
@@ -527,6 +544,7 @@ body{
     .promo_title-description{
         width: 296px;
         font-size: 16px;
+        margin-top: 0;
         margin-bottom: 32px;
     }
     .promo_title-link{
@@ -596,10 +614,13 @@ body{
         font-size: 16px;
     }
     .footer {
+        display: flex;
         padding: 10px;
+        justify-content: center;
     }
     .footer_block{
-        padding-top: 40px;
+        padding-block: 40px;
+        width: 296px;
     }
     .footer_description {
         font-size: 12px;

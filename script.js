@@ -1,47 +1,48 @@
-// Функция для расчёта ширины полосы прокрутки
+
+// Функция для вычисления ширины полосы прокрутки
 function getScrollbarWidth() {
-  return window.innerWidth - document.documentElement.clientWidth;
+  const scrollDiv = document.createElement('div');
+  scrollDiv.style.width = '100px';
+  scrollDiv.style.height = '100px';
+  scrollDiv.style.overflow = 'scroll';
+  scrollDiv.style.position = 'absolute';
+  scrollDiv.style.top = '-9999px';
+  document.body.appendChild(scrollDiv);
+
+  const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+  document.body.removeChild(scrollDiv);
+
+  return scrollbarWidth;
 }
 
-// Переменные
-const modalContainer = document.getElementById('modalContainer');
-const openModalButton = document.getElementById('openModal');
-
-// Загрузка модального окна из отдельного файла
+// Загрузка модального окна
 fetch('modal.html')
   .then(response => response.text())
   .then(data => {
-    modalContainer.innerHTML = data;
+    // Вставляем содержимое модального окна в контейнер
+    document.getElementById('modalContainer').innerHTML = data;
 
-    // После загрузки модального окна получаем элементы
-    const modal = document.getElementById("modal");
-    const closeModalButton = document.getElementById("closeModal");
+    // Элементы
+    const modal = document.getElementById('modal');
+    const openModalButton = document.getElementById('openModal');
+
+    // Получаем ширину полосы прокрутки
+    const scrollbarWidth = getScrollbarWidth();
 
     // Открытие модального окна
-    openModalButton.addEventListener("click", () => {
-      modal.style.display = "flex";
-
-      // Блокируем прокрутку и добавляем отступ
-      const scrollbarWidth = getScrollbarWidth();
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    openModalButton.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Отключить прокрутку страницы
+      document.body.style.paddingRight = `${scrollbarWidth}px`; // Компенсация полосы прокрутки
     });
 
-    // Закрытие модального окна
-    closeModalButton.addEventListener("click", () => {
-      modal.style.display = "none";
-
-      // Включаем прокрутку и убираем отступ
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
-    });
-
-    // Закрытие при клике на фон
-    window.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = "";
-        document.body.style.paddingRight = "";
+    // Закрытие модального окна при клике на фон
+    modal.addEventListener('click', (event) => {
+      // Проверяем, что клик произошёл именно на модальном фоне
+      if (event.target.id === 'modal') {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Включить прокрутку
+        document.body.style.paddingRight = ''; // Убрать отступ
       }
     });
   })
